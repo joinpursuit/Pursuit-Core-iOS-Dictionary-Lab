@@ -154,7 +154,6 @@ for arrDictionary in peopleWithScores {
 
 print(highestScoringName)
 
-
 assert(highestScoringName == "Garry Mckenzie", "Was expecting Garry Mckenzie, but got \(highestScoringName)")
 
 // Question Five
