@@ -125,13 +125,9 @@ var highestScoringName = ""
 var highestScore = 0
 
 for dict in peopleWithScores {
-    for (key, value) in dict {
-        if key == "score" {
-            if (Int(value) ?? 0) > highestScore {
-                highestScore = (Int(value) ?? 0)
-                highestScoringName = "\((dict["firstName"] ?? "unknown")) \((dict["lastName"] ?? "unknown"))"
-            }
-        }
+    if (Int(dict["score"] ?? "") ?? 0) > highestScore {
+        highestScore = (Int(dict["score"] ?? "") ?? 0)
+        highestScoringName = "\((dict["firstName"] ?? "unknown")) \((dict["lastName"] ?? "unknown"))"
     }
 }
 
@@ -174,7 +170,6 @@ for char in myString {
         frequencyDict[char] = 1
     }
 }
-print(frequencyDict)
 
 for (char, num) in frequencyDict {
     if frequencyDict[char] ?? 0 > highestCount && char != " " && !char.isUppercase {
