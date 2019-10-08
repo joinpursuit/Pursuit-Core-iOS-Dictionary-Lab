@@ -125,9 +125,12 @@ var highestScoringName = ""
 var highestScore = 0
 
 for dict in peopleWithScores {
-    if (Int(dict["score"] ?? "") ?? 0) > highestScore {
-        highestScore = (Int(dict["score"] ?? "") ?? 0)
-        highestScoringName = "\((dict["firstName"] ?? "unknown")) \((dict["lastName"] ?? "unknown"))"
+    let currentScore = (Int(dict["score"] ?? "") ?? 0)
+    let currentName = "\((dict["firstName"] ?? "")) \((dict["lastName"] ?? ""))"
+    
+    if currentScore > highestScore {
+        highestScore = currentScore
+        highestScoringName = currentName
     }
 }
 
