@@ -132,15 +132,26 @@ var peopleWithScores: [[String: String]] = [
     ]
 ]
 
-var highestScoringName = ""
+
 
 // Your code here
-for dict in peopleWithScores {
-    for score in dict {
-        
+var highestScore = 0
+var highestScoringName = ""
+for currentPersonDictionary in peopleWithScores {
+    print("currently looking \(currentPersonDictionary["firstName"] ?? "")")
+    let scoreAsString = currentPersonDictionary["score"] ?? "0" // ?? "0" turns scoreAsString from Optional to string
+    let scoreAsInt = Int(scoreAsString) ?? 0
+    if scoreAsInt > highestScore { // e.g 13 > 0
+        highestScore = scoreAsInt
+        let firstName = currentPersonDictionary["firstName"] ?? "no first name"
+        let lastName = currentPersonDictionary["lastName"] ?? "no last name"
+highestScoringName = firstName + " " + lastName
     }
+    print("\n")
 }
-//assert(highestScoringName == "Garry Mckenzie", "Was expecting Garry Mckenzie, but got \(highestScoringName)")
+print("\(highestScoringName) has the highest score of \(highestScore)")
+
+assert(highestScoringName == "Garry Mckenzie", "Was expecting Garry Mckenzie, but got \(highestScoringName)")
 
 // Question Five
 
