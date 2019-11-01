@@ -30,6 +30,7 @@ assert(calAndDanAppleCount == 8, "Was expecting 8, but got \(calAndDanAppleCount
 // d. Set all the values in applesDict to 0
 
 // Your code here
+
 //for (_ , num) in applesDict {
 //    num = 0
 //}
@@ -94,7 +95,7 @@ assert(authorScores["Jon Krakauer"] == 6.1, "Was expecting 6.1, but got \(String
 
 // b. Add an additional author named “Erik Larson” with an assigned score of 9.2.
 authorScores["Erik Larson"] = 9.2
-assert(authorScores["Erik Larson"] == 9.2, "Was expecting 9.2, but got \(authorScores["Erik Larson"])")
+assert(authorScores["Erik Larson"] == 9.2, "Was expecting 9.2, but got \(String(describing: authorScores["Erik Larson"]))")
 
 
 // Question Four
@@ -133,7 +134,7 @@ var highestScoringName = ""
 
 // Your code here
 var highScore = 0
-for ["score"] in peopleWithScores{
+for score.value in peopleWithScores{
     if let score = ["score"]{
         highScore = ["score"]
     }
