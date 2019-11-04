@@ -27,7 +27,7 @@ assert(calAndDanAppleCount == 8, "Was expecting 8, but got \(calAndDanAppleCount
 
 // d. Set all the values in applesDict to 0
 
-for (key, value) in applesDict {
+for (key, _) in applesDict {
     applesDict[key] = 0
 }
 
@@ -127,10 +127,12 @@ var peopleWithScores: [[String: String]] = [
         "score": "16"
     ]
 ]
-//
+
+
+//let arrayOfScores = Array(peopleWithScores.keys)
 //var highestScoringName = ""
-//for value in peopleWithScores.values {
-//    print(peopleWithScores)
+//for value in peopleWithScores[score: String] {
+//    print(value)
 //}
 
 //// // given albums sort by album/artist name
@@ -147,23 +149,36 @@ var peopleWithScores: [[String: String]] = [
 // Write code below such that cubeDict maps the numbers between 1 and 20 inclusive to their cubes.  A number's cube is that number multiplied by itself twice:
 // 2 ^ 3 = 2 * 2 * 2 = 8
 
-//var cubeDict: [Int: Int] = [:]
-//
-//cubeDict = [1: 1]
-//
-////repeat {
-//for [key, value] in cubeDict {
-//  value = 1 * 1 * 1
-//    key += 1
-//} while cubeDict[key] <= 20
+var cubeDict: [Int: Int] = [:]
+cubeDict[1] = 1 * 1 * 1
+cubeDict[2] = 2 * 2 * 2
+cubeDict[3] = 3 * 3 * 3
+cubeDict[4] = 4 * 4 * 4
+cubeDict[5] = 5 * 5 * 5
+cubeDict[6] = 6 * 6 * 6
+cubeDict[7] = 7 * 7 * 7
+cubeDict[8] = 8 * 8 * 8
+cubeDict[9] = 9 * 9 * 9
+cubeDict[10] = 10 * 10 * 10
+cubeDict[11] = 11 * 11 * 11
+cubeDict[12] = 12 * 12 * 12
+cubeDict[13] = 13 * 13 * 13
+cubeDict[14] = 14 * 14 * 14
+cubeDict[15] = 15 * 15 * 15
+cubeDict[16] = 16 * 16 * 16
+cubeDict[17] = 17 * 17 * 17
+cubeDict[18] = 18 * 18 * 18
+cubeDict[19] = 19 * 19 * 19
+cubeDict[20] = 20 * 20 * 20
 
+print(cubeDict)
 
-//assert(cubeDict.count == 20, "Was expecting 20, but got \(cubeDict.count)")
-//assert(cubeDict[1] == 1, "Was expecting 1, but got \(String(describing: cubeDict[1]))")
-//assert(cubeDict[2] == 8, "Was expecting 8, but got \(String(describing: cubeDict[2]))")
-//assert(cubeDict[3] == 27, "Was expecting 27, but got \(String(describing: cubeDict[3]))")
-//assert(cubeDict[14] == 2744, "Was expecting 2744, but got \(String(describing: cubeDict[14]))")
-//assert(cubeDict[20] == 8000, "Was expecting 8000, but got \(String(describing: cubeDict[20]))")
+assert(cubeDict.count == 20, "Was expecting 20, but got \(cubeDict.count)")
+assert(cubeDict[1] == 1, "Was expecting 1, but got \(String(describing: cubeDict[1]))")
+assert(cubeDict[2] == 8, "Was expecting 8, but got \(String(describing: cubeDict[2]))")
+assert(cubeDict[3] == 27, "Was expecting 27, but got \(String(describing: cubeDict[3]))")
+assert(cubeDict[14] == 2744, "Was expecting 2744, but got \(String(describing: cubeDict[14]))")
+assert(cubeDict[20] == 8000, "Was expecting 8000, but got \(String(describing: cubeDict[20]))")
 
 
 // Question Six
@@ -177,5 +192,31 @@ var frequencyDict: [Character: Int] = [:]
 var mostFrequentChar: Character = "?"
 
 // Your code here
+var finalDict = [Character: Int]()
+for char in myString.lowercased().replacingOccurrences(of: " ", with: "") {
+    if let value = finalDict[char] {
+        finalDict[char] = value + 1
+    } else {
+        finalDict[char] = 1
+    }
+}
+print(finalDict)
 
-//assert(mostFrequentChar == "e", "Was expecting e, but got \(mostFrequentChar)")
+var mostFreqString = ""
+var mostTimes = 0
+
+for (key, value) in finalDict {
+    if value > mostTimes {
+        mostFreqString = key.description
+        mostTimes = value
+    }
+}
+finalDict = [Character(mostFreqString): mostTimes]
+
+print(finalDict)
+
+
+assert(mostFrequentChar == "e", "Was expecting e, but got \(mostFrequentChar)")
+
+
+
